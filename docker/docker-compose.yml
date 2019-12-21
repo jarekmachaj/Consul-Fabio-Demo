@@ -1,0 +1,23 @@
+version: '3.4'
+services:
+  consul:
+    image: consul
+    ports:
+      - '8300:8300'
+      - '8301:8301'
+      - '8301:8301/udp'
+      - '8500:8500'
+      - '8600:8600'
+      - '8600:8600/udp'       
+    command: "agent -server -ui -node=server-1 -bootstrap-expect=1 -client=0.0.0.0"
+  fabio:
+    image: fabiolb/fabio
+    ports:
+    - "9999:9999"
+    - "9998:9998"
+    volumes:
+    - "C:/Work/tools/fabio/fabio.properties:/etc/fabio/fabio.properties"
+    depends_on:
+      - consul
+    links:
+      - consul 
