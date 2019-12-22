@@ -16,7 +16,7 @@ services:
     - "9999:9999"
     - "9998:9998"
     volumes:
-    - "C:/Work/tools/fabio/fabio.properties:/etc/fabio/fabio.properties"
+    - "C:/Work/sync/tools/fabio/fabio.properties:/etc/fabio/fabio.properties"
     depends_on:
       - consul
     links:

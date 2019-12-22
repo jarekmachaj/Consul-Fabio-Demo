@@ -94,9 +94,12 @@ namespace webApp2
                         Value = Encoding.UTF8.GetBytes("TakiConnString")
                     };
                     var putAttempt = await client.KV.Put(putPair);
-                    await context.Response.WriteAsync("Connection string saved!");
+
+                    var getPair = await client.KV.Get("apps/jpc/settings/devices");
+                    await context.Response.WriteAsync(Encoding.UTF8.GetString(getPair.Response.Value, 0, getPair.Response.Value.Length));
                 });  
 
+                
             });
         }
     }
