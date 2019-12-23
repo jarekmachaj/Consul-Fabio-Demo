@@ -9,6 +9,8 @@ services:
       - '8500:8500'
       - '8600:8600'
       - '8600:8600/udp'       
+    volumes:
+      - "C:/WORK/Sync/!Projects - Repo/Consul-Fabio-Demo/docker/consul/:/consul/config/"
     command: "agent -server -ui -node=server-1 -bootstrap-expect=1 -client=0.0.0.0"
   fabio:
     image: fabiolb/fabio
@@ -16,7 +18,7 @@ services:
     - "9999:9999"
     - "9998:9998"
     volumes:
-    - "C:/Work/sync/tools/fabio/fabio.properties:/etc/fabio/fabio.properties"
+    - "C:/WORK/Sync/!Projects - Repo/Consul-Fabio-Demo/docker/fabio/fabio.properties:/etc/fabio/fabio.properties"
     depends_on:
       - consul
     links:
