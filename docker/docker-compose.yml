@@ -18,11 +18,7 @@ services:
     - "9999:9999"
     - "9998:9998"
     volumes:
-<<<<<<< HEAD
-    - c:/Work/repo/Github/Consul-Fabio-Demo/docker/fabio.properties:/etc/fabio/fabio.properties"
-=======
     - "C:/WORK/Sync/!Projects - Repo/Consul-Fabio-Demo/docker/fabio/fabio.properties:/etc/fabio/fabio.properties"
->>>>>>> 6960f053bb7504e05a21c2c06a563dce5cda4a63
     depends_on:
       - consul
     links:
